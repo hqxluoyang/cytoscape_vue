@@ -1,0 +1,15 @@
+.leftpage {
+    .group {
+        .leftContainer {
+            display: grid;
+            .item {
+                width: 40px;
+                height: 40px;
+                margin: 5px;
+                cursor: pointer;
+                text-align: center;
+                background: rgb(85, 85, 85);
+            }
+        }
+    }
+}
