@@ -17,7 +17,13 @@ class drawLine {
     dragNode: any = '';
     public tapNode(drag: any, evt: any) { 
         let cy = cyinit.cy;
-        console.log("this.startNode:", this.startNode)
+        console.log("this.startNode:", drag.data())
+
+        if(drag.data().source == 'tempNode'){
+            this.delDragLine();
+            return
+        }
+
         if (this.startNode) { 
             let nodeAId = this.startNode.data().id
             let nodeBId = drag.data().id
@@ -69,6 +75,7 @@ class drawLine {
 
             let line = cyMrg.createLine({
                 source: "tempNode",
+                id:"drageLine",
                 target: drag.data().id
             })
 
@@ -94,6 +101,15 @@ class drawLine {
             }
             this.dragNode.position(xy)
         }
+    }
+
+    public delDragLine () {
+        let cy = cyinit.cy;
+        this.dragNode = cy.getElementById("drageLine");
+        let tempNode = cy.getElementById("tempNode");
+        this.startNode = "";
+        cy.remove(this.dragNode)
+        cy.remove(tempNode)
     }
 
     public drag () {

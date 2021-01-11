@@ -13,7 +13,9 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    selectMod:""
+    selectMod:"",
+    nodeEdge: '',
+    bgcolor: 'rgb(248 248 248)'
   },
   mutations: {
   },
@@ -24,6 +26,12 @@ export default new Vuex.Store({
   getters: {
     get_select_mod(state:any) { 
       return state.selectMod
+    },
+    get_node_edge(state:any) { 
+      return state.nodeEdge
+    },
+    get_bg_color (state:any){
+      return state.bgcolor
     }
   },
   modules: {

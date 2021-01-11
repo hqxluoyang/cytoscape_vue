@@ -8,11 +8,18 @@
             position: absolute;
             height: 100%;
         }
+        .right {
+            background: #b0b0b0;
+            width: 250px;
+            right: 0px;
+            position: absolute;
+            height: 100%;
+        }
         .center {
             margin: 0 auto;
             background: #ccc;
             margin-left: 251px;
-            margin-right: 2px;
+            margin-right: 251px;
             .outcontainer {
                 width: 100%;
                 position: relative;

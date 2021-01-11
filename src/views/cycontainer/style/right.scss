@@ -1,0 +1,32 @@
+.rightpage {
+    .setting {
+        background: #868686;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+    }
+    .group {
+        .settingContainer {
+            line-height: 40px;
+            margin-left: 20px;
+        }
+        .leftContainer {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            .item {
+                width: 40px;
+                height: 40px;
+                margin: 5px;
+                cursor: pointer;
+                border-radius: 5px;
+                text-align: center;
+                background: rgb(248, 248, 248);
+                img {
+                    width: 35px;
+                    margin-top: 4px;
+                }
+            }
+        }
+    }
+}

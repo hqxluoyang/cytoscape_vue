@@ -6,3 +6,6 @@
  * @Description: In User Settings Edit
  * @FilePath: \sanyuan_edite_topo\src\utils\config.ts
  */
+export default {
+    vue: {}
+}

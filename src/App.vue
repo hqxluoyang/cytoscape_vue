@@ -10,6 +10,7 @@
   <div id="app">
     <router-view/>
     <tipMsg />
+    <allPanel />
   </div>
 </template>
 
@@ -17,13 +18,20 @@
 import { Component, Vue } from 'vue-property-decorator';
 
 import tipMsg from '@/components/tipMsg.vue'
+import Config from '@/utils/config.ts';
+import allPanel from '@/views/cycontainer/panel/index.vue'
 @Component({
   components: {
-    tipMsg
+    tipMsg,
+    allPanel
   },
 })
 export default class Container extends Vue {
+  mounted() {
+   Config.vue = this 
+  }
 }
+
 </script>
 
 <style lang="scss">

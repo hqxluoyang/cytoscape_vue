@@ -1,13 +1,13 @@
 /*
  * @Author: your name
  * @Date: 2020-12-29 14:16:52
- * @LastEditTime: 2020-12-30 09:38:59
+ * @LastEditTime: 2021-01-11 09:41:35
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \sanyuan_edite_topo\src\views\cycontainer\cyinit.ts
  */
 
-import cytoscape from 'cytoscape'
+
 interface cyinitParam { 
     id: string;
 }
@@ -23,7 +23,15 @@ let elements = {
 					]
 				}
 
+import cytoscape from 'cytoscape'
 import style from './style'
+//import dblclick from 'cytoscape-dblclick';
+import datajson from './data.json'
+import cytoscapeSbgnStylesheet from 'cytoscape-sbgn-stylesheet'
+import cytoscapeGridGuide from 'cytoscape-grid-guide'
+import nodeTip from './nodeTip'
+import popper from "cytoscape-popper"
+import gridOptions from './gridOptions'
 class cyinit {
     cyid: string = ""
     cy:any = ""
@@ -31,15 +39,44 @@ class cyinit {
         
     }
     public init() { 
+	//	cytoscape.use( dblclick );
+		// cytoscape.use( cytoscapeSbgnStylesheet );
+		let self = this;
+		popper(cytoscape)
+		cytoscapeGridGuide(cytoscape)
         this.cy = cytoscape({
 				container: document.getElementById("cytoscapeId"),
+				//style: cytoscapeSbgnStylesheet(cytoscape),
+				//elements: datajson,
 				wheelSensitivity: 0.05,
-				style: [],
-				//elements: {},
+				// elements: elements,
         		layout: {
-          			name: "breadthfirst"
+          			//name: "breadthfirst"
         		}
 			})
+		// this.cy.gridGuide(gridOptions)
+		console.log("this.cy:", this.cy.gridGuide)
+		//this.cy.dblclick();
+		//nodeTip.init(this.cy)
+		setInterval(() => {
+			/*
+			this.cy.nodes((node:any, i:number) => {
+                console.log("node--:", node)
+                let d = node.data()
+                if(d['type'] != 'point'){
+					node.data('label', "heh");
+					let dboolen = Math.floor(Math.random()*3)
+					let number = Math.floor(Math.random()*100)
+
+					if(dboolen != 2) number = ''
+
+					node.style({
+						label: number
+					})
+                }
+			})
+			*/
+		},2000)
     }
 }
 

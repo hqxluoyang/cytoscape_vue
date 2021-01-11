@@ -9,3 +9,7 @@ body ul {
   padding: 0;
   margin: 0;
 }
+
+body .node {
+  background: red;
+}

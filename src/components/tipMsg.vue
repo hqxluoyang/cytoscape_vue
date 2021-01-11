@@ -8,7 +8,7 @@
 -->
 <template>
   <div :style="{left: mouse.left + 'px', top: mouse.top + 'px'}" v-show="selectMod" class="tipMsg">
-    
+    <img :src="selectMod.path"/>
   </div>
 </template>
 
@@ -30,6 +30,7 @@ interface mouseXY {
 export default class TipMsg extends Vue {
     height:number = tools.getPageHeight();
     flag:boolean = false;
+    imgsrc:string = "";
     @Getter("get_select_mod") selectMod: any;
     mouse:mouseXY = {
         left: 0,
@@ -45,8 +46,8 @@ export default class TipMsg extends Vue {
             if(this.$store.state.selectMod){
                 this.flag = true;
                 this.mouse = {
-                    left: e.clientX + 5,
-                    top: e.clientY + 5
+                    left: e.clientX -50,
+                    top: e.clientY - 50
                 }
             }else{
                  self.flag = false;
@@ -59,7 +60,8 @@ export default class TipMsg extends Vue {
                     position: {
                         x: e.clientX - 250,
                         y: e.clientY
-                    }
+                    },
+                    el: self.$store.state.selectMod
                 })
                 console.log('webmouseup:', e, e.clientX, e.clientY)
             }
@@ -69,9 +71,10 @@ export default class TipMsg extends Vue {
         })
 
         EventBus.$on('webmousedown', (e:any)=>{
+            console.log("this.selectMod:", this.selectMod)
             self.mouse = {
-                    left: e.clientX + 5,
-                    top: e.clientY + 5
+                    left: e.clientX - 50,
+                    top: e.clientY - 50
                 }
         })
     }
@@ -80,10 +83,16 @@ export default class TipMsg extends Vue {
 
 <style scoped lang="scss">
 .tipMsg{
-    width:20px;
-    background: rebeccapurple;
+    width:50px;
+    background: rgb(242, 242, 243);
     z-index:1000;
     position: absolute;
-    height:20px
+    height:50px;
+    text-align: center;
+    border-radius: 10px;;
+    img{
+        width:40px;
+        margin-top:5px;
+    }
 }
 </style>
