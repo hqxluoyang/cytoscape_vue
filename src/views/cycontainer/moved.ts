@@ -1,3 +1,11 @@
+/*
+ * @Author: your name
+ * @Date: 2021-01-11 09:40:27
+ * @LastEditTime: 2021-01-12 13:53:00
+ * @LastEditors: your name
+ * @Description: In User Settings Edit
+ * @FilePath: \sanyuan_edite_topo\src\views\cycontainer\moved.ts
+ */
 interface optXY {
     x:number;
     y:number;
@@ -17,7 +25,6 @@ function moved () {
         x: tempX,
         y: tempY
       }
-      // console.log("old x , old y:", x, y)
       x = opt.x
       y = opt.y
       

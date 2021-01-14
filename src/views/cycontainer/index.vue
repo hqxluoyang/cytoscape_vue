@@ -8,6 +8,7 @@
 -->
 <template>
   <div class="home">
+      <div style="position:absolute;color:red;right:300px;z-index:10000;background:#ccc;margin-top:10px;padding:5px" class="ctips">{{pname}}</div>
      <ul class = "container">
          <li class="left">
              <left />
@@ -44,10 +45,13 @@ import { State, Getter, Action, Mutation } from "vuex-class";
 export default class Container extends Vue {
     height:number = tools.getPageHeight();
     // bgcolor:string = '#000'
+    pname:string = "整体供电拓扑"
     @Getter("get_bg_color") bgcolor: any;
     mounted() {
         
         this.height = tools.getPageHeight();
+        this.pname = localStorage.getItem("toponame")
+        console.log("this.pname:", this.pname)
         setTimeout(()=>{
             draw.start()
         }, 0)
@@ -58,4 +62,5 @@ export default class Container extends Vue {
 
 <style scoped lang="scss">
 @import "./index.scss"
+
 </style>

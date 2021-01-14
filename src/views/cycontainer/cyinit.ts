@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-12-29 14:16:52
- * @LastEditTime: 2021-01-11 09:41:35
+ * @LastEditTime: 2021-01-13 08:59:05
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \sanyuan_edite_topo\src\views\cycontainer\cyinit.ts
@@ -46,20 +46,19 @@ class cyinit {
 		cytoscapeGridGuide(cytoscape)
         this.cy = cytoscape({
 				container: document.getElementById("cytoscapeId"),
-				//style: cytoscapeSbgnStylesheet(cytoscape),
+				style: style,
 				//elements: datajson,
-				wheelSensitivity: 0.05,
-				// elements: elements,
-        		layout: {
-          			//name: "breadthfirst"
-        		}
-			})
+				wheelSensitivity: 0.05
+				
+		})
+		this.cy.maxZoom(2)
+		this.cy.minZoom(0.5)
 		// this.cy.gridGuide(gridOptions)
 		console.log("this.cy:", this.cy.gridGuide)
 		//this.cy.dblclick();
 		//nodeTip.init(this.cy)
 		setInterval(() => {
-			/*
+			
 			this.cy.nodes((node:any, i:number) => {
                 console.log("node--:", node)
                 let d = node.data()
@@ -75,7 +74,7 @@ class cyinit {
 					})
                 }
 			})
-			*/
+			
 		},2000)
     }
 }

@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-12-30 10:44:52
- * @LastEditTime: 2020-12-30 14:27:43
+ * @LastEditTime: 2021-01-13 10:31:50
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \sanyuan_edite_topo\src\components\tipMsg.vue
@@ -10,11 +10,15 @@
   <div class="nodeSetting">
     <el-form ref="form" style="padding-right:14px;margin-top:10px" label-width="80px">
         <el-form-item label="编码">
-            <el-input  v-model="lineParam.width"></el-input>
+            <el-input size="mini"  v-model="lineParam.serial"></el-input>
+        </el-form-item>
+
+        <el-form-item label="名称">
+            <el-input size="mini" v-model="lineParam.label"></el-input>
         </el-form-item>
 
         <el-form-item label="">
-            <el-button @click="submit" type="primary">提交</el-button>
+            <el-button size="mini" @click="submit" type="primary">提交</el-button>
         </el-form-item>
     </el-form>
   </div>
@@ -42,8 +46,8 @@ export default class TipMsg extends Vue {
     flag:boolean = false;
     lineColor:string = "green"
     lineParam:any={
-        width:10,
-        'line-color':this.lineColor
+        label:'',
+        serial:''
     }
 
     value:number = 0;

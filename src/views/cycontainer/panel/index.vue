@@ -10,6 +10,7 @@
   <div>
       <cxtapLine />
       <cxtapNode />
+      <canvasName />
   </div>
 </template>
 
@@ -17,10 +18,12 @@
 import { Component, Vue } from 'vue-property-decorator';
 import cxtapLine from './cxtapLine.vue'
 import cxtapNode from './cxtapNode.vue'
+import canvasName from './canvas.vue'
 @Component({
   components: {
       cxtapLine,
-      cxtapNode
+      cxtapNode,
+      canvasName
   },
 })
 export default class Container extends Vue {

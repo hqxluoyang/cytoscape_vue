@@ -43,6 +43,8 @@ export default class Container extends Vue {
         name:'垂直均分'
     },{
         name:'刷新'
+    },{
+        name:'视图切换'
     }]
 
     clickTools (el:any) {
@@ -59,6 +61,8 @@ export default class Container extends Vue {
             this.VerticalAverage(cy);
         }else if(el.name == '保存'){
             this.save(cy);
+        }else if(el.name == '视图切换'){
+            EventBus.$emit('changeCname', "")
         }
     }
 
@@ -130,7 +134,8 @@ export default class Container extends Vue {
         cc = cc.replace(new RegExp('NaN',"gm"), 0);
     
         var formData = new FormData();
-        formData.append("name", "editer_topo_12345");
+        let name = "editer_topo_" + localStorage.getItem("toponame")
+        formData.append("name", name);
         formData.append("data", cc);
         console.log("cy.pan:", cy.pan(), cy.zoom())
         axios({

@@ -22,8 +22,9 @@ class cydraw {
 
     public start() {
         let self = this;
+        let name = "editer_topo_" + localStorage.getItem("toponame")
         axios.get("/diagram/getdata/", {
-            params: { 'name': 'editer_topo_12345' }
+            params: { 'name': name }
         }).then(function (response) {
             let param = response.data
             if (param.code == 1) {
@@ -59,7 +60,6 @@ class cydraw {
         if(data.pan) cy.pan(data.pan)
 
         if(data.zoom) cy.zoom(data.zoom)
-
         cyMrg.setNodeStyle();
         cyMrg.setEdgeStyle();
     }

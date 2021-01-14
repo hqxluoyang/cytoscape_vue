@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-12-30 09:07:43
- * @LastEditTime: 2021-01-11 09:46:35
+ * @LastEditTime: 2021-01-12 10:08:39
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \sanyuan_edite_topo\src\views\cycontainer\cyMrg.ts
@@ -113,6 +113,7 @@ class cyMrg {
             node.style({
                 'background-color': '#00000',
                 'width': "10px",
+                'background-opacity':1,
                 'visibility': 'visible',
                 'transform':'rotate(90deg)',
                 'height': "10px"
@@ -127,7 +128,8 @@ class cyMrg {
                 "text-wrap": "wrap",
                 "text-max-width": "10px",
                 'opacity': 0.5,
-                "text-valign": "top",
+                'background-opacity':0.8,
+                "text-valign": "center",
                 "text-halign": "center",
                 "text-background-color": "#888",
                 "shape": "round-rectangle",
@@ -139,19 +141,20 @@ class cyMrg {
             node.style({
                 'background-color': '#eee',
                 'color': 'yellow',
-                'width': "50px",
+                //'width': "50px",
                 //'content': data.label,
                 'font-size': '30px',
                 "text-wrap": "wrap",
                 "text-max-width": "10px",
                 "text-valign": "top",
+                'background-opacity':0,
                 "text-halign": "center",
                 "text-background-color": "#888",
                 "shape": "round-rectangle",
                 'visibility': 'visible',
                 'transform':'rotate(90deg)',
                 'background-image': img,
-                'height': "50px"
+                //'height': "50px"
             })
         }
     }
@@ -160,6 +163,7 @@ class cyMrg {
         let data = edge.data()
         let style = {
             width: 1,
+            "curve-style": "bezier",
             "target-arrow-shape": 'triangle-backcurve'
         }
         if(data.width){
@@ -174,7 +178,8 @@ class cyMrg {
     refreshEdge (edge:any){
         let data = edge.data()
         let style = {
-            "target-arrow-shape": 'circle-triangle'
+            // "target-arrow-shape": 'circle-triangle'
+           // "curve-style": "bezier"
         }
         if(data.width){
             style['width'] = data.width;

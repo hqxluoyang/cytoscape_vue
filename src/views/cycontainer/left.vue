@@ -1,7 +1,7 @@
 <!--
  * @Author: your name
  * @Date: 2020-12-30 09:47:44
- * @LastEditTime: 2020-12-30 13:32:41
+ * @LastEditTime: 2021-01-12 11:24:48
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \sanyuan_edite_topo\src\views\cycontainer\left.vue
@@ -75,6 +75,38 @@ export default class Container extends Vue {
         label:'rect',
         path: require("@/assets/tools/电路图.png"),
         type: "rect"
+    },{
+        label:'ups',
+        path: require("@/assets/tools/ups.png"),
+        type: "ups"
+    },{
+        label:'变电站',
+        path: require("@/assets/tools/变电站.png"),
+        type: "变电站"
+    },{
+        label:'开关关',
+        path: require("@/assets/tools/开关关.png"),
+        type: "开关关"
+    },{
+        label:'开关开',
+        path: require("@/assets/tools/开关开.png"),
+        type: "开关开"
+    },{
+        label:'连接器',
+        path: require("@/assets/tools/连接器.png"),
+        type: "连接器"
+    },{
+        label:'水冷',
+        path: require("@/assets/tools/水冷.png"),
+        type: "水冷"
+    },{
+        label:'开关关竖',
+        path: require("@/assets/tools/开关关竖.png"),
+        type: "开关关竖"
+    },{
+        label:'开关开竖',
+        path: require("@/assets/tools/开关开竖.png"),
+        type: "开关开竖"
     }]
 
     mousedown (el:any) {

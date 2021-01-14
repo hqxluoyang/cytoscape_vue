@@ -66,7 +66,6 @@ class nodeTip {
 
     tipinit (cy){
         let self = this;
-        return;
         tipsnode = []
         try {
             cy.nodes((node, i) => {
